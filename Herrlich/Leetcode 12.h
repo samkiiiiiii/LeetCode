@@ -31,3 +31,24 @@ public:
 		return res;		
 	}
 };
+
+class Solution {
+public:
+
+        vector<vector<string>> table {
+        {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
+        {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},
+        {"", "C", "CC","CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
+        {"", "M", "MM", "MMM"}};
+
+        string intToRoman(int num) {
+                string res = "";
+                int bit = 0;
+                while (num) {
+                        res = table[bit][num%10] + res;
+                        num /= 10;
+                        bit++;
+                }
+                return res;
+        }
+};
